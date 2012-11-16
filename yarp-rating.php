@@ -47,7 +47,7 @@ function yarp_install(){
 /**
  * Loading the plugin
  */
-add_action( 'plugins_loaded', 'yarp_load' )
+add_action( 'plugins_loaded', 'yarp_load' );
 /**
  * Loading function - loads the necessary files et al.
  * @since  1.0
