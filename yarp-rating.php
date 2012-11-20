@@ -2,7 +2,7 @@
 /*
 Plugin Name: YARP-rating
 Plugin URI: http://tacensi.com/wp/yart-rating
-Description: YARP-rating stands for yet another rating plugin is, you guessed, a rating plugin. I wanted a plugin to provide user the ability to rate posts and custom posts with one to five stars, as well as the ability to later edit the rates. The other plugins are either too bloated with functions I do not want or do not provide the functionality I want.
+Description: YARP-rating is, you guessed, a rating plugin. Yarp stands for yet another rating plugin, since there are only a few of those ;-) I wanted a plugin to provide user the ability to rate posts and custom posts with one to five stars, as well as the ability to later edit the rates. The other plugins are either too bloated with functions I do not want or do not provide the functionality I want.
 Version: 1.0
 Author: Thiago Censi
 Author URI: http://tacensi.com
