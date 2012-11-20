@@ -13,7 +13,6 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 */
 
-
 /**
  * Plugin activation
  */
@@ -27,22 +26,23 @@ function yarp_install(){
 	if( version_compare( get_bloginfo( 'version' ), '3.1', '<' ) ){
 		deactivate_plugins( basename( __FILE__ ) );
 	}
+
 	// load wp database api, get the prefix and
 	// create the new table
 	global $wpdb;
-
-	$prefix = $wpdb->base_prefix;
-
-	$query = "CREATE TABLE IF NOT EXISTS {$prefix}yarp-rating(
-		`user_id` INT NOT NULL ,
-		`post_id` INT NOT NULL ,
-		`rating` INT NOT NULL ,
+	$table_name = $wpdb->prefix . 'yarp-rating';
+	$query = "CREATE TABLE `$table_name`(
+		`user_id` INT(11) NOT NULL ,
+		`post_id` INT(11) NOT NULL ,
+		`rating` INT(1) NOT NULL ,
 		PRIMARY KEY ( `user_id` , `post_id` )
 		)";
-	
-	$wpdb->query( $query );
 
+	// Create it with dbDelta, for upgrading functionality
+	require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+	dbDelta( $query );
 }
+
 
 /**
  * Loading the plugin

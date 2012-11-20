@@ -8,15 +8,14 @@
  */
 
 // Makes sure the call is from inside WP
-if( !define( 'WP_UNINSTALL_PLUGIN' ) )
+if( !defined( 'WP_UNINSTALL_PLUGIN' ) )
 	exit();
 
 global $wpdb;
 
-$prefix = $wpdb->base_prefix;
+$table_name = $wpdb->prefix . 'yarp-rating';
+$query = "DROP TABLE `$table_name`";
 
-$sql = "DROP TABLE {$prefix}yarp-rating";
-
-$wpdb->query( $sql );
+$wpdb->query( $query );
 
 ?>
